@@ -132,7 +132,7 @@ public class PokerTable : WTUIPage
         btnRestart.gameObject.SetActive(false);
         panelControl.SetActive(false);
 
-        
+
     }
 
     #region 按钮事件
@@ -257,7 +257,7 @@ public class PokerTable : WTUIPage
     {
         string path;
         Sprite sprite = null;
-   
+
         if (isFront)
         {
             sprite = FileIO.LoadSprite(54);
@@ -310,7 +310,7 @@ public class PokerTable : WTUIPage
         for (int i = 0; i < myCardInfo.Count; i++)
         {
             basePos.x += 0.8f;
-            pos.Add(basePos);   
+            pos.Add(basePos);
         }
 
         for (int i = 0; i < myCardInfo.Count; i++)
@@ -540,7 +540,7 @@ public class PokerTable : WTUIPage
         }
     }
 
-   
+
 
 
 

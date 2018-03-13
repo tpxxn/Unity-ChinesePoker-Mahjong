@@ -9,8 +9,10 @@ public class PokeMainCanvas : BaseCanvas, IHandlerReceive
     private PokerLoginControl pokerLoginControl;
     //主界面
     private PokerMainControl pokerMainControl;
-    //桌界面
+    //斗地主桌界面
     private PokerTableControl pokerTableControl;
+    //麻将卓界面
+    private MajiangTableControl majiangTableControl;
     //快速开始界面
     private PokerFastRoomControl pokerFastRoomControl;
     //设置界面
@@ -36,8 +38,10 @@ public class PokeMainCanvas : BaseCanvas, IHandlerReceive
         pokerLoginControl = new PokerLoginControl();
         //主界面控制器
         pokerMainControl = new PokerMainControl();
-        //桌面控制器
+        //斗地主桌面控制器
         pokerTableControl = new PokerTableControl();
+        //麻将桌控制器
+        majiangTableControl = new MajiangTableControl();
         //快速开始界面控制器
         pokerFastRoomControl = new PokerFastRoomControl();
         //设置界面控制器
@@ -57,15 +61,20 @@ public class PokeMainCanvas : BaseCanvas, IHandlerReceive
         //打开桌界面
         pokerMainControl.AddTableEvent(OpenTableCallBack);
 
+        //打开麻将界面
+        pokerMainControl.AddMajiangEvent(OpenMajiangCallBack);
+
         //打开快速开始界面
         pokerMainControl.AddFastRoomEvent(OpenFastRoomCallBack);
 
         //打开输赢界面
         pokerTableControl.AddWinEvent(OpenWinCallBack);
+        majiangTableControl.AddGameOverEvent(OpenWinCallBack);
 
         //打开设置界面
         pokerMainControl.AddSettingEvent(OpenSettingCallBack);
         pokerTableControl.AddSettingEvent(OpenSettingCallBack);
+        majiangTableControl.AddSettingEvent(OpenSettingCallBack);
         
 
     }
@@ -124,6 +133,12 @@ public class PokeMainCanvas : BaseCanvas, IHandlerReceive
     public void OpenWinCallBack(string info)
     {
         pokerWinControl.ShowWinUI(info);
+    }
+
+    //麻将界面回调函数
+    public void OpenMajiangCallBack()
+    {
+        majiangTableControl.ShowMajiangUI();
     }
 
 

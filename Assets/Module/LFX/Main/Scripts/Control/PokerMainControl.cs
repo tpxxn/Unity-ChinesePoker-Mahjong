@@ -15,6 +15,8 @@ public class PokerMainControl  {
 
         //桌面
         pokerMain.AddTableEventEvernt(ShowTable);
+        //麻将游戏界面（暂时在加入房间中）
+        pokerMain.AddJoinEvent(ShowMajiang);
         //快速开始
         pokerMain.AddFastEvent(ShowFastRoom);
         //设置
@@ -29,6 +31,13 @@ public class PokerMainControl  {
     public void AddTableEvent(Action method)
     {
         TableEvent = method;
+    }
+
+    //打开麻将游戏界面
+    public Action MajiangEvent;
+    public void AddMajiangEvent(Action action)
+    {
+        MajiangEvent = action;
     }
 
     //打开快速房间界面
@@ -87,5 +96,16 @@ public class PokerMainControl  {
         {
             TableEvent();
         }            
+    }
+
+    /// <summary>
+    /// 打开麻将桌面
+    /// </summary>
+    public void ShowMajiang()
+    {
+        if(MajiangEvent != null)
+        {
+            MajiangEvent();
+        }
     }
 }
